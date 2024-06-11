@@ -163,7 +163,10 @@ void saveEncodedData(const string &encodedText, const map<char, string> &huffman
 
 int main()
 {
-    string filePath = "sample.txt";
+    string filePath;
+    cout << "Enter path of the file to be compressed: ";
+    getline(cin, filePath);
+
     string fileContent = readInputFile(filePath);
     if (!fileContent.empty())
     {
@@ -183,7 +186,10 @@ int main()
         string encodedText = encodeText(fileContent, huffmanCodes);
         cout << "\nEncoded Text: " << encodedText << endl;
 
-        string outputFilePath = "encoded.bin";
+        string outputFilePath;
+        cout << "Enter the name of the compressed file: ";
+        getline(cin, outputFilePath);
+        
         saveEncodedData(encodedText, huffmanCodes, outputFilePath);
         cout << "Encoded data saved to " << outputFilePath << endl;
     }
